@@ -41,11 +41,11 @@ The path data can be obtained via the `paths` variable, or using the `changed` e
     </style>
     <div 
         id="inputArea" 
+        on-down="_onDown"
+        on-track="_onTrack"
+        on-up="_onUp"
         on-mouseenter="_onEntering"
-        on-mouseleave="_onLeaving"
-        on-mousedown="_onDrawStart"
-        on-mouseup="_onDrawStop"
-        on-mousemove="_onDraw"></div>
+        on-mouseleave="_onLeaving"></div>
   </template> 
 
   <script>
@@ -164,6 +164,28 @@ The path data can be obtained via the `paths` variable, or using the `changed` e
       // ***********************************************************************
       // Event listeners
       // ***********************************************************************
+
+      _onDown: function(evt, detail) {
+        console.debug("[granite-draw-sparkline] _onDown", detail, this.$.inputArea.getBoundingClientRect());  
+        evt.preventDefault();
+        evt.offsetX = detail.x - this.$.inputArea.getBoundingClientRect().left;
+        evt.offsetY = detail.y - this.$.inputArea.getBoundingClientRect().top; 
+        this._onDrawStart(evt);
+      },
+
+      _onUp: function(evt, detail) {
+        console.debug("[granite-draw-sparkline] _onDown", detail);  
+        evt.preventDefault();
+        this._onDrawStop(evt);
+      },
+
+      _onTrack: function(evt, detail) {
+        console.debug("[granite-draw-sparkline] _onTrack", evt);  
+        evt.preventDefault();
+        evt.offsetX = detail.x - this.$.inputArea.getBoundingClientRect().left;
+        evt.offsetY = detail.y - this.$.inputArea.getBoundingClientRect().top; 
+        this._onDraw(evt);     
+      },
 
       _onResetChange: function() {
         if (!this.reset) {
