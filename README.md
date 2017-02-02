@@ -18,10 +18,11 @@
 <custom-element-demo>
   <template>
     <style>
-        granite-ink {
-           width:300px;
-           height:300px; 
-        }
+      granite-ink {
+        width:300px;
+        height:300px; 
+        border: solid 1px grey;
+      }
     </style>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="granite-ink.html">
