@@ -41,10 +41,11 @@ The path data can be obtained via the `paths` variable, or using the `changed` e
     </style>
     <div 
         id="inputArea" 
-        on-mousedown="_onMouseDown"
-        on-mouseout="_onMouseDown"
-        on-mouseup="_onMouseUp"
-        on-mousemove="_onMouseMove"></div>
+        on-mouseenter="_onEntering"
+        on-mouseleave="_onLeaving"
+        on-mousedown="_onDrawStart"
+        on-mouseup="_onDrawStop"
+        on-mousemove="_onDraw"></div>
   </template> 
 
   <script>
@@ -181,23 +182,36 @@ The path data can be obtained via the `paths` variable, or using the `changed` e
       _onResize: function() {
       },
 
-      _onMouseDown: function(evt) {
-        // console.debug("[granite-ink] _onMouseDown");
+      _onEntering: function(evt) {
+        console.debug("[granite-ink] _onEntering", evt);
+        if ((evt.buttons % 2 > 0) || (evt.button == 1) ) {
+          this._onDrawStart(evt);
+        }
+      },
+
+      _onLeaving: function() {
+        console.debug("[granite-ink] _onLeaving");
+        this._onDrawStop();  
+      },
+      
+
+      _onDrawStart: function(evt) {
+        console.debug("[granite-ink] _onDrawStart", evt);
         this._isDrawing = true;   
         this.paths.push([]);
         this._position = { x: evt.offsetX, y: evt.offsetY };
 
       },
-      _onMouseUp: function() {
-        // console.debug("[granite-ink] _onMouseUp");
+      _onDrawStop: function() {
+        console.debug("[granite-ink] _onDrawStop");
         this._isDrawing = false;  
       },
 
-      _onMouseMove: function(evt) {
+      _onDraw: function(evt) {
         if (!this._isDrawing) {
           return;
         }
-        // console.debug("[granite-ink] _onMouseMove", evt);
+        // console.debug("[granite-ink] _onDraw", evt);
         this._context.beginPath();
         this._context.moveTo(this._position.x,this._position.y);
         this._context.lineTo(evt.offsetX, evt.offsetY);
