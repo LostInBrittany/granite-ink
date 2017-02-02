@@ -1,0 +1,29 @@
+{
+  "name": "granite-ink",
+  "authors": [
+    "Horacio Gonzalez <horacio.gonzalez@gmail.com>"
+  ],
+  "description": "A webcomponent to hand draw paths on a canvas and get the paths coordinates",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "lostinbrittany",
+    "canvas"
+  ],
+  "main": "granite-ink.html",
+  "license": "MIT",
+  "homepage": "https://github.com/LostInBrittany/granite-led",
+  "ignore": [],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.7.0",
+    "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.5"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.6",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.3",
+    "paper-styles": "PolymerElements/paper-styles#^1.1.4",
+    "test-fixture": "PolymerElements/test-fixture#^1.1.1",
+    "web-component-tester": "^4.3.0"
+  }
+}
