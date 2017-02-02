@@ -17,6 +17,12 @@
 ```
 <custom-element-demo>
   <template>
+    <style>
+        granite-ink {
+           width:300px;
+           height:300px; 
+        }
+    </style>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="granite-ink.html">
     <next-code-block></next-code-block>
@@ -25,7 +31,7 @@
 ```
 -->
 ```html
-<granite-ink style="width:300px;height:300px;"></granite-ink>
+<granite-ink></granite-ink>
 ```
 
 ## Install
