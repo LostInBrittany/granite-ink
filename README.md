@@ -47,7 +47,7 @@ Or [download as ZIP](https://github.com/LostInBrittany/granite-ink/archive/gh-pa
 
 ## Usage
 
-1. Import Web Components' polyfill (if needed):
+1. Import Web Components' Loader polyfill (if needed):
 
     ```html
         <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -56,7 +56,7 @@ Or [download as ZIP](https://github.com/LostInBrittany/granite-ink/archive/gh-pa
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="node_modules/granite-ink/granite-ink.js">
+    <script rel="module" href="node_modules/granite-ink/granite-ink.js"></script>
     ```
 
 3. Start using it!
