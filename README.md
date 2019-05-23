@@ -6,7 +6,7 @@
 
 > is a webcomponent to hand draw paths on a canvas and get the paths coordinates
 >
-> Polymer 1.7 ready
+> Polymer 3.1 ready
 
 
 ## Doc & demo
@@ -49,16 +49,16 @@ Or [download as ZIP](https://github.com/LostInBrittany/granite-ink/archive/gh-pa
 
 ## Usage
 
-1. Import Web Components' polyfill (if needed):
+1. Import Web Components' Loader polyfill (if needed):
 
     ```html
-    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+        <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     ```
 
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/granite-ink/granite-ink.html">
+    <script rel="module" href="node_modules/granite-ink/granite-ink.js"></script>
     ```
 
 3. Start using it!
